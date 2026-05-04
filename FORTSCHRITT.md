@@ -61,8 +61,27 @@ Tagebuch dieser Reise — was wann gemacht wurde, was als Nächstes kommt, und w
 
 ---
 
+## 2026-05-04 — Phase 4: GitHub ✅
+
+**Was passiert ist:**
+- GitHub-Account war bereits da: `Silasistdergoat`
+- Repository auf github.com angelegt: `quizz-karteikarten`, **public**, ohne automatische README/.gitignore/Lizenz (weil wir die schon lokal hatten)
+- Git mit globaler Identität konfiguriert: `Silas Gudioni` / `gudionis@gmail.com`
+- Alle Änderungen seit `create-next-app` in einen Commit gepackt (`9f39f63`):
+  - `README.md`, `app/layout.tsx`, `app/page.tsx` modifiziert
+  - `ANLEITUNG.md`, `FORTSCHRITT.md`, `PROJEKT_PLAN.md` neu hinzugefügt
+- GitHub CLI (`gh` 2.92.0) via Homebrew installiert, mit `gh auth login` per Web-Browser-OAuth angemeldet (Token im macOS-Keychain)
+- Remote `origin` mit der Repo-URL verbunden, `git push -u origin main` → Code online ✓
+- URL: https://github.com/Silasistdergoat/quizz-karteikarten
+
+**Hinweise / Stolpersteine:**
+- Lokaler Ordnername (`karteikarten-app`) ≠ GitHub-Repo-Name (`quizz-karteikarten`) — egal, Git stört das nicht.
+- Bei der Anmeldung über `gh auth login` muss zwischen Terminal und Browser hin- und her gewechselt werden (Code abtippen / einfügen) — kurz fummelig, aber einmalig.
+
+---
+
 ## Als Nächstes
 
-**Phase 4 — Code zu GitHub hochladen.**
+**Phase 5 — Auf Vercel deployen.**
 
-GitHub-Account anlegen (falls nicht vorhanden), Git mit Name + E-Mail konfigurieren, Repository erstellen und unseren Code dorthin „pushen". Vorteile: Code sicher in der Cloud, Versions-Geschichte, Voraussetzung für Phase 5 (Vercel-Deploy).
+Vercel-Account anlegen (Login per GitHub geht am einfachsten), unser GitHub-Repo verbinden, Auto-Deploy starten. Am Ende: echte öffentliche URL, die auf dem Handy genauso funktioniert wie auf dem Mac.

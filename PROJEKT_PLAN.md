@@ -32,11 +32,12 @@ Ein einfaches Web-Tool, das aus eingegebenem Text mit Hilfe von Claude.ai Kartei
 - [x] Vollen Workflow durchgespielt: Karteikarten + Quiz (mit Beispiel-JSON UND echtem Claude.ai-Roundtrip)
 - [x] Server gestoppt mit `Ctrl + C`
 
-## Phase 4 — GitHub
-- [ ] GitHub-Account anlegen (falls nicht vorhanden)
-- [ ] Git konfigurieren (Name + E-Mail eintragen)
-- [ ] Repository auf GitHub erstellen
-- [ ] Code hochladen
+## Phase 4 — GitHub ✅
+- [x] GitHub-Account vorhanden (`Silasistdergoat`)
+- [x] Git konfiguriert (Silas Gudioni / gudionis@gmail.com, global)
+- [x] GitHub CLI (`gh`) installiert und per Browser eingeloggt
+- [x] Repository erstellt: https://github.com/Silasistdergoat/quizz-karteikarten
+- [x] Code hochgeladen (2 Commits auf `main`)
 
 ## Phase 5 — Vercel-Deployment
 - [ ] Vercel-Account anlegen
