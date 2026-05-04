@@ -80,8 +80,31 @@ Tagebuch dieser Reise — was wann gemacht wurde, was als Nächstes kommt, und w
 
 ---
 
-## Als Nächstes
+## 2026-05-04 — Phase 5: Vercel-Deployment ✅
 
-**Phase 5 — Auf Vercel deployen.**
+**Was passiert ist:**
+- Vercel-Account mit „Continue with GitHub" angelegt — kein neues Passwort
+- GitHub-App auf Silas's Account installiert, Zugriff nur auf Repo `quizz-karteikarten` (Option *„Only select repositories"* — sicherer als alle freizugeben)
+- Repo in Vercel importiert; Next.js wurde automatisch erkannt, alle Build-Einstellungen passend vorgeschlagen
+- Projektname auf Vercel: `karteikarten-app-beta` (der ursprünglich gewollte `quizz-karteikarten` war im Account schon belegt)
+- Build erfolgreich → Live unter **https://karteikarten-app-beta.vercel.app**
+- **Auto-Deploy aktiv**: jeder zukünftige `git push` zu `main` löst automatisch ein neues Deployment aus
 
-Vercel-Account anlegen (Login per GitHub geht am einfachsten), unser GitHub-Repo verbinden, Auto-Deploy starten. Am Ende: echte öffentliche URL, die auf dem Handy genauso funktioniert wie auf dem Mac.
+**Hinweise / Stolpersteine:**
+- Vercel-Projektname muss im eigenen Account eindeutig sein. Nur Kleinbuchstaben, Zahlen, `.` `_` `-`. Bei Konflikt einfach eine Variante wählen.
+- Beim GitHub-Permission-Dialog „Only select repositories" wählen → sicherer als „All".
+
+---
+
+## Phase 1–5 abgeschlossen 🎉
+
+Das Projekt ist offiziell fertig:
+- 💻 Funktioniert lokal (`npm run dev` → http://localhost:3000)
+- ☁️ Code in der Cloud auf GitHub
+- 🌐 Live im Internet auf Vercel
+- 📱 Auf jedem Gerät erreichbar — Mac, Handy, Tablet, Freunde, Welt
+
+## Optionale nächste Level
+
+1. **Design polish** — Tailwind-Übung. Farben, Animationen, Schriftarten, Dark-Mode-Toggle, Logo. Niedriger Einstieg, sofortige visuelle Belohnung.
+2. **Claude direkt eingebaut via API** — großer UX-Sprung: Knopfdruck statt Copy-Paste. Braucht Anthropic-API-Key (kostenpflichtig), eine Server-Funktion auf Vercel zum sicheren Verstecken des Keys, eine Next.js-API-Route. Aufwand ~30–60 Min beim ersten Mal.

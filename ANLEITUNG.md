@@ -1,6 +1,12 @@
 # Anleitung — Karteikarten-Tool
 
-Spickzettel für Mike: wenn du nach einer Pause zurückkommst und nicht mehr weißt, wie alles geht, schau hier rein.
+Spickzettel für Silas: wenn du nach einer Pause zurückkommst und nicht mehr weißt, wie alles geht, schau hier rein.
+
+## Wo ist das Tool live?
+
+🌐 **https://karteikarten-app-beta.vercel.app** — funktioniert auf jedem Gerät (Mac, Handy, Tablet), brauchst nichts zu starten.
+
+Nur wenn du **Code ändern und neu testen** willst, brauchst du den lokalen Server (siehe weiter unten).
 
 ---
 

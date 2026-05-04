@@ -39,12 +39,13 @@ Ein einfaches Web-Tool, das aus eingegebenem Text mit Hilfe von Claude.ai Kartei
 - [x] Repository erstellt: https://github.com/Silasistdergoat/quizz-karteikarten
 - [x] Code hochgeladen (2 Commits auf `main`)
 
-## Phase 5 — Vercel-Deployment
-- [ ] Vercel-Account anlegen
-- [ ] GitHub-Repo mit Vercel verbinden
-- [ ] Deploy starten
-- [ ] Echte URL im Browser testen
-- [ ] URL auf dem Handy testen
+## Phase 5 — Vercel-Deployment ✅
+- [x] Vercel-Account angelegt (per GitHub-Login — kein separates Passwort)
+- [x] GitHub-Repo verbunden, Vercel-Projektname `karteikarten-app-beta`
+- [x] Erstes Deploy erfolgreich gebaut
+- [x] **Live-URL: https://karteikarten-app-beta.vercel.app**
+- [x] Im Browser auf dem Mac getestet
+- [ ] Auf dem Handy testen — einfach die URL aufrufen, sollte überall funktionieren
 
 ---
 

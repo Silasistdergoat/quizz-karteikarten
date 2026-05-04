@@ -2,6 +2,8 @@
 
 Ein einfaches Web-Tool, das aus Text Karteikarten und Multiple-Choice-Quizfragen erzeugt — komplett per Copy-Paste mit Hilfe von Claude.ai. Kein API-Key, keine Server-Logik. Läuft komplett im Browser.
 
+**🌐 Live-Demo:** [karteikarten-app-beta.vercel.app](https://karteikarten-app-beta.vercel.app)
+
 ## Workflow
 
 1. Text in das Eingabefeld einfügen, **Modus** wählen (Karteikarten / Quiz).
