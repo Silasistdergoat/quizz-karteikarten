@@ -1,0 +1,68 @@
+# Fortschritt
+
+Tagebuch dieser Reise — was wann gemacht wurde, was als Nächstes kommt, und welche Stolpersteine aufgetaucht sind.
+
+---
+
+## 2026-05-04 — Phase 1: Setup ✅
+
+**Was passiert ist:**
+- Projektordner `~/Projects/karteikarten-app` angelegt
+- Werkzeuge geprüft:
+  - Homebrew → war noch nicht da → installiert (Version 5.1.8)
+  - Node.js → war schon vorhanden (v25.9.0)
+  - npm → war auch schon vorhanden (v11.12.1, kommt mit Node.js)
+  - Git → war schon vorinstalliert (v2.50.1, kommt vom Mac)
+- Die drei Living Documents angelegt: `PROJEKT_PLAN.md`, `FORTSCHRITT.md`, `ANLEITUNG.md`
+
+**Hinweise / Stolpersteine:**
+- Bei der Homebrew-Installation fragt der Mac nach dem Login-Passwort. Beim Tippen erscheint **nichts** auf dem Bildschirm — keine Sterne, keine Punkte. Das ist normal!
+- Nach der Homebrew-Installation muss man im eigenen Terminal-Fenster das Fenster einmal **schließen und neu öffnen** (oder `source ~/.zprofile` ausführen), damit `brew` dort funktioniert. In Claude Code ist das egal, weil ich Homebrew direkt über den Pfad `/opt/homebrew/bin/brew` anspreche.
+- Node.js wurde von Homebrew als „bereits installiert" gemeldet — vermutlich existierte schon eine frühere Installation auf dem System.
+
+---
+
+## 2026-05-04 — Phase 2: Projekt erstellen ✅
+
+**Was passiert ist:**
+- Mit `npx create-next-app` ein Next.js 16-Projekt angelegt (TypeScript, Tailwind v4, App Router, ESLint, kein `src/`-Ordner)
+- Versionen: Next.js **16.2.4**, React **19.2.4**, Tailwind CSS **4**, TypeScript **5**
+- Vor dem Aufruf die drei `.md`-Doku-Dateien kurz nach `/tmp` ausgelagert (`create-next-app` braucht einen leeren Ordner) und danach zurückgeschoben
+- `app/page.tsx` komplett neu geschrieben mit vier Bereichen (Schritt 1–4):
+  - Eingabe + Modus-Wahl
+  - Prompt-Anzeige mit Kopier-Knopf + Claude.ai-Link
+  - JSON-Eingabe mit toleranter Parser-Logik (auto-Modus-Erkennung, ` ``` `-Codefence-Toleranz, Format-Validierung)
+  - Karteikarten-Anzeige (`KarteikartenAnsicht`): Frage → Antwort zeigen → Nächste, Fortschrittsbalken, Mischen
+  - Quiz-Anzeige (`QuizAnsicht`): 4-Optionen-Klick mit grün/rot-Feedback, Punktestand, farbige Auswertung (≥80% grün, ≥50% gelb, sonst rot)
+- `app/layout.tsx`: Sprache auf `de`, Browser-Tab-Titel auf „Karteikarten & Quiz"
+- `README.md` durch projekt-spezifische deutsche Version ersetzt
+
+**Hinweise / Stolpersteine:**
+- Next.js 16 + Tailwind 4 sind neuer als der Wissensstand des Modells — `AGENTS.md` weist explizit darauf hin. Vor dem Coden kurz in `node_modules/next/dist/docs/` reingeschaut, alles funktioniert wie erwartet.
+- ESLint hat das ursprüngliche `useEffect`-Reset-Muster bemängelt → auf `key`-Prop-Reset (React-empfohlene Schreibweise) umgestellt.
+- Bonus: `create-next-app` hat automatisch ein `.git`-Repo angelegt — schon vorbereitet für Phase 4.
+
+---
+
+## 2026-05-04 — Phase 3: Lokal testen ✅
+
+**Was passiert ist:**
+- Dev-Server gestartet mit `npm run dev` — lief auf http://localhost:3000
+- Browser geöffnet → Layout sauber dargestellt (heller bzw. dunkler Modus je nach System-Einstellung)
+- **Mini-Test 1** — Karteikarten mit Beispiel-JSON: ✓ Frage → Antwort zeigen → Nächste, Mischen, Fortschrittsbalken, Auto-Reset bei neuer JSON
+- **Mini-Test 2** — Quiz mit Beispiel-JSON: ✓ 4-Optionen-Klick mit grün/rot-Feedback, Punktestand, farbige Auswertung
+- **Mini-Test 3** — Voller Roundtrip mit Claude.ai: ✓ Photosynthese-Text → Prompt generiert → in Claude.ai gepastet → JSON-Antwort zurückkopiert → echte Karteikarten generiert
+- `ANLEITUNG.md` mit den richtigen Start/Stopp/Ändern-Befehlen befüllt
+- Server mit `Ctrl + C` gestoppt
+
+**Hinweise / Stolpersteine:**
+- Beim Stoppen ist `Ctrl + C` die **ctrl-Taste**, nicht Cmd — auf dem Mac ein häufiger Stolperstein.
+- Solange der Dev-Server läuft, ist das Terminal-Fenster mit Live-Logs „belegt". Das ist normal — für andere Befehle einfach ein zweites Terminal-Fenster öffnen.
+
+---
+
+## Als Nächstes
+
+**Phase 4 — Code zu GitHub hochladen.**
+
+GitHub-Account anlegen (falls nicht vorhanden), Git mit Name + E-Mail konfigurieren, Repository erstellen und unseren Code dorthin „pushen". Vorteile: Code sicher in der Cloud, Versions-Geschichte, Voraussetzung für Phase 5 (Vercel-Deploy).

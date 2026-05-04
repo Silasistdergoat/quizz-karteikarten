@@ -1,36 +1,64 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Karteikarten & Quiz
 
-## Getting Started
+Ein einfaches Web-Tool, das aus Text Karteikarten und Multiple-Choice-Quizfragen erzeugt — komplett per Copy-Paste mit Hilfe von Claude.ai. Kein API-Key, keine Server-Logik. Läuft komplett im Browser.
 
-First, run the development server:
+## Workflow
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+1. Text in das Eingabefeld einfügen, **Modus** wählen (Karteikarten / Quiz).
+2. **„Prompt generieren"** klicken — der Prompt erscheint mit Kopier-Knopf.
+3. Auf [claude.ai](https://claude.ai) gehen, Prompt einfügen, JSON-Antwort kopieren.
+4. JSON unten in das Eingabefeld einfügen, **„Anzeigen"** klicken.
+5. Karten durchgehen oder Quiz lösen.
+
+### JSON-Formate
+
+**Karteikarten:**
+
+```json
+[{"frage": "…", "antwort": "…"}]
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+**Quiz:**
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```json
+[{"frage": "…", "optionen": ["A","B","C","D"], "richtige_antwort": 0}]
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+`richtige_antwort` ist der Index 0–3 der korrekten Option.
 
-## Learn More
+Der Parser ist tolerant: Markdown-Codeblöcke (` ``` `) um die JSON werden automatisch entfernt, der Modus wird anhand der Felder erkannt.
 
-To learn more about Next.js, take a look at the following resources:
+## Lokale Entwicklung
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+npm install      # einmalig: Pakete laden
+npm run dev      # Dev-Server starten (Auto-Reload bei Code-Änderungen)
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Anschließend [http://localhost:3000](http://localhost:3000) im Browser öffnen. Server stoppen mit `Ctrl + C`.
 
-## Deploy on Vercel
+Weitere Befehle:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+| Befehl            | Zweck                                  |
+|-------------------|----------------------------------------|
+| `npm run build`   | Produktions-Build erzeugen             |
+| `npm start`       | Produktions-Server starten             |
+| `npm run lint`    | Code-Qualität prüfen (ESLint)          |
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Tech Stack
+
+- **Next.js 16** (App Router)
+- **React 19**
+- **TypeScript 5**
+- **Tailwind CSS 4**
+- 100 % clientseitig (eine einzige Seite, `app/page.tsx`)
+
+## Projekt-Doku
+
+- **`PROJEKT_PLAN.md`** — Übersicht aller 5 Phasen mit Checkliste
+- **`FORTSCHRITT.md`** — Tagebuch: was wann passiert ist, welche Stolpersteine
+- **`ANLEITUNG.md`** — Anfänger-Spickzettel zum Starten/Stoppen/Ändern
+
+## Lizenz
+
+Privatprojekt — keine Lizenz festgelegt.
